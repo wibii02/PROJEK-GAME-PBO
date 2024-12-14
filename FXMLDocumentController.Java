@@ -237,3 +237,22 @@ public class FXMLDocumentController implements Initializable {
             }
         }
     }
+    private void updateScore() {
+        score++;
+        updateScoreDisplay();
+    }
+
+    private void updateScoreDisplay() {
+        scoreButton.setText(SCORE_PREFIX + score);
+    }
+
+    @FXML
+    private void onYesClicked() {
+        startGame(); // Mulai permainan baru
+    }
+
+    @FXML
+    private void onNoClicked() {
+        System.exit(0); // Keluar dari aplikasi
+    }
+}
