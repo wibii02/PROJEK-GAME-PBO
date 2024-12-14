@@ -190,3 +190,33 @@ public class FXMLDocumentController implements Initializable {
             System.err.println("Error saat memindahkan rintangan: " + e.getMessage());
         }
     }
+    private void resetObstaclePosition(RintanganMobil rintangan) {
+        try {
+            boolean overlaps;
+            double newX, newY;
+
+            do {
+                overlaps = false;
+                newX = random.nextDouble() * (SCENE_WIDTH - rintangan.getGambar().getFitWidth());
+                newY = -rintangan.getGambar().getFitHeight();
+
+                for (RintanganMobil otherRintangan : rintanganList) {
+                    if (otherRintangan != rintangan) {
+                        double otherX = otherRintangan.getX();
+                        double otherY = otherRintangan.getY();
+
+                        if (Math.abs(newX - otherX) < rintangan.getGambar().getFitWidth() &&
+                            Math.abs(newY - otherY) < rintangan.getGambar().getFitHeight()) {
+                            overlaps = true;
+                            break;
+                        }
+                    }
+                }
+            } while (overlaps);
+
+            rintangan.setX(newX);
+            rintangan.setY(newY);
+        } catch (Exception e) {
+            System.err.println("Error saat mereset posisi rintangan: " + e.getMessage());
+        }
+    }
