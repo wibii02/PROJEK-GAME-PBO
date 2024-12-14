@@ -21,3 +21,24 @@ abstract class Kendaraan {
         this.x = gambar.getLayoutX();
         this.y = gambar.getLayoutY();
     }
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+        gambar.setLayoutX(x);
+    }
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+        gambar.setLayoutY(y);
+    }
+
+    public ImageView getGambar() {
+        return gambar;
+    }
+}
