@@ -163,3 +163,19 @@ public class FXMLDocumentController implements Initializable {
         gameRunning = true;
         startObstacleAnimation();
     }
+    private void startObstacleAnimation() {
+        gameTimer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                for (RintanganMobil rintangan : rintanganList) {
+                    try {
+                        moveObstacle(rintangan);
+                    } catch (Exception e) {
+                        System.err.println("Error saat memindahkan rintangan: " + e.getMessage());
+                    }
+                }
+                checkCollision();
+            }
+        };
+        gameTimer.start();
+    }
