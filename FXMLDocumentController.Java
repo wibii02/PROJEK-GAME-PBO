@@ -42,3 +42,37 @@ abstract class Kendaraan {
         return gambar;
     }
 }
+class PlayerCar extends Kendaraan {
+    public PlayerCar(ImageView gambar) {
+        super(gambar);
+    }
+}
+
+class RintanganMobil extends Kendaraan {
+    public RintanganMobil(ImageView gambar) {
+        super(gambar);
+    }
+}
+
+public class FXMLDocumentController implements Initializable {
+
+    @FXML
+    private ImageView playerCar;
+    @FXML
+    private ImageView rintanganMobil1;
+    @FXML
+    private ImageView rintanganMobil2;
+    @FXML
+    private ImageView btnPlay;
+    @FXML
+    private Button scoreButton;
+    @FXML
+    private Label ScoreAkhir; // Label untuk skor akhir
+    @FXML
+    private Label gameOver;   // Label untuk "GAME OVER"
+    @FXML
+    private Label restart;    // Label untuk "APAKAH ANDA INGIN BERMAIN LAGI"
+    @FXML
+    private Button buttonYes; // Tombol "YES"
+    @FXML
+    private Button buttonNo;  // Tombol "NO"
