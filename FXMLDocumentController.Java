@@ -220,3 +220,20 @@ public class FXMLDocumentController implements Initializable {
             System.err.println("Error saat mereset posisi rintangan: " + e.getMessage());
         }
     }
+    private void checkCollision() {
+        for (RintanganMobil rintangan : rintanganList) {
+            if (playerCarInstance.getGambar().getBoundsInParent().intersects(rintangan.getGambar().getBoundsInParent())) {
+                gameTimer.stop();
+                gameRunning = false;
+
+                // Tampilkan elemen akhir permainan
+                ScoreAkhir.setText("SCORE ANDA : " + score);
+                ScoreAkhir.setVisible(true);
+                gameOver.setVisible(true);
+                restart.setVisible(true);
+                buttonYes.setVisible(true);
+                buttonNo.setVisible(true);
+                break;
+            }
+        }
+    }
