@@ -179,3 +179,14 @@ public class FXMLDocumentController implements Initializable {
         };
         gameTimer.start();
     }
+    private void moveObstacle(RintanganMobil rintangan) {
+        try {
+            rintangan.setY(rintangan.getY() + RINTANGAN_SPEED);
+            if (rintangan.getY() > SCENE_HEIGHT) {
+                resetObstaclePosition(rintangan);
+                updateScore();
+            }
+        } catch (Exception e) {
+            System.err.println("Error saat memindahkan rintangan: " + e.getMessage());
+        }
+    }
