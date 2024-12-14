@@ -10,3 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+
+abstract class Kendaraan {
+    private double x;
+    private double y;
+    private ImageView gambar;
+
+    public Kendaraan(ImageView gambar) {
+        this.gambar = gambar;
+        this.x = gambar.getLayoutX();
+        this.y = gambar.getLayoutY();
+    }
